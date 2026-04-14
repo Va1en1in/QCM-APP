@@ -1,4 +1,4 @@
-const CACHE_NAME = "qcm-police-2026-04-14-v1";
+const CACHE_NAME = "qcm-police-264d0181e3";
 const APP_SHELL = [
   "./",
   "./index.html",
