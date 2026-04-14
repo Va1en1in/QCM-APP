@@ -1,0 +1,17 @@
+{
+  "name": "QCM Revision Police",
+  "short_name": "QCM Police",
+  "description": "Application web mobile pour reviser les themes et QCM de police.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e8edf5",
+  "theme_color": "#12305d",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
