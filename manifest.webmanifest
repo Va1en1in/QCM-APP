@@ -3,6 +3,7 @@
   "short_name": "QCM Police",
   "description": "Application web mobile pour reviser les themes et QCM de police.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#e8edf5",
   "theme_color": "#12305d",

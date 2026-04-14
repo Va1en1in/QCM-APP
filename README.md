@@ -1,45 +1,46 @@
-# QCM iPhone Web App
+# QCM iPhone App
 
-Ce dossier est pret pour une publication sur GitHub Pages.
+Ce dossier est pret pour GitHub Pages ou Netlify.
 
-## Fichiers utiles
+## Fichiers
 
-- `index.html` : l'application
-- `manifest.webmanifest` : configuration de la web app installable
-- `service-worker.js` : cache hors ligne simple
+- `index.html` : l'application complete
+- `manifest.webmanifest` : installation ecran d'accueil
 - `icon.svg` : icone de l'app
-- `404.html` : secours pour GitHub Pages
+- `service-worker.js` : cache simple
+- `404.html` : secours GitHub Pages
+- `.nojekyll` : evite des soucis GitHub Pages
 
-## Publication sur GitHub Pages
+## Ou modifier les questions
+
+Les questions sont dans :
+
+- `index.html`
+
+Cherche :
+
+`const themes = {`
+
+## Publier sur GitHub Pages
 
 1. Cree un depot GitHub.
 2. Envoie le contenu de ce dossier a la racine du depot.
-3. Sur GitHub, ouvre `Settings > Pages`.
-4. Dans `Build and deployment`, choisis :
-   - `Source`: `Deploy from a branch`
-   - `Branch`: `main`
-   - `Folder`: `/ (root)`
-5. Attends la publication.
+3. Ouvre `Settings > Pages`.
+4. Choisis `Deploy from a branch`.
+5. Selectionne `main` puis `/ (root)`.
 
-L'URL finale ressemblera a :
+L'adresse finale sera du type :
 
-`https://TON-PSEUDO.github.io/NOM-DU-DEPOT/`
+`https://ton-pseudo.github.io/nom-du-depot/`
 
-## Installation sur iPhone
+## Installer sur iPhone
 
-1. Ouvre l'URL GitHub Pages dans Safari sur iPhone.
+1. Ouvre l'URL dans Safari.
 2. Touche `Partager`.
 3. Choisis `Ajouter a l'ecran d'accueil`.
 
-L'app s'ouvrira ensuite comme une mini app en plein ecran.
+## Si une ancienne version s'affiche
 
-## Test en local sur Mac
-
-```bash
-cd "/Users/valentinhutter/Documents/New project/qcm-iphone-app"
-python3 -m http.server 8000
-```
-
-Puis ouvre :
-
-`http://localhost:8000`
+1. Recharge la page dans Safari.
+2. Ferme puis reouvre l'app.
+3. Si besoin, supprime l'icone puis ajoute-la de nouveau.
