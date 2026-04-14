@@ -22,6 +22,10 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 .header p { font-size: 13px; opacity: 0.75; margin-top: 4px; }
 .progress-bar-wrap { background: #e8ecf5; height: 5px; }
 .progress-bar-fill { background: #1a3a6b; height: 5px; transition: width 0.3s; }
+.install-tip { display: none; margin: 16px 28px 0; padding: 12px 14px; border-radius: 10px; background: #eef4ff; border: 1px solid #cfdcf7; color: #23406f; font-size: 13px; line-height: 1.5; }
+.install-tip.visible { display: block; }
+.install-tip strong { display: block; margin-bottom: 4px; font-size: 13px; }
+.install-tip button { margin-top: 8px; border: none; background: transparent; color: #1a3a6b; font-weight: 700; cursor: pointer; }
 .menu-screen { padding: 28px; }
 .menu-screen h2 { font-size: 17px; color: #1a3a6b; margin-bottom: 6px; }
 .menu-subtitle { font-size: 13px; color: #777; margin-bottom: 20px; }
@@ -79,10 +83,6 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 .score-circle .score-denom { font-size: 14px; opacity: 0.8; }
 #final-score h3 { font-size: 18px; color: #1a3a6b; margin-bottom: 8px; }
 #final-score p { font-size: 14px; color: #666; margin-bottom: 20px; }
-.install-tip { display: none; margin: 16px 28px 0; padding: 12px 14px; border-radius: 10px; background: #eef4ff; border: 1px solid #cfdcf7; color: #23406f; font-size: 13px; line-height: 1.5; }
-.install-tip.visible { display: block; }
-.install-tip strong { display: block; margin-bottom: 4px; font-size: 13px; }
-.install-tip button { margin-top: 8px; border: none; background: transparent; color: #1a3a6b; font-weight: 700; cursor: pointer; }
 
 @media (max-width: 700px) {
   .install-tip { margin: 14px 18px 0; }
