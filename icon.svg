@@ -1,16 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QCM Police">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="QCM Police">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a3a6b"/>
-      <stop offset="100%" stop-color="#29549c"/>
+    <linearGradient id="appBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10284e"/>
+      <stop offset="100%" stop-color="#1f4f93"/>
     </linearGradient>
+    <linearGradient id="badgeRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1423"/>
+      <stop offset="100%" stop-color="#22385f"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9f6d3c"/>
+      <stop offset="100%" stop-color="#6e4727"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#09101d" flood-opacity="0.28"/>
+    </filter>
   </defs>
-  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
-  <rect x="92" y="110" width="328" height="292" rx="30" fill="#f7f9ff" opacity="0.96"/>
-  <rect x="124" y="156" width="190" height="28" rx="14" fill="#d7e3fb"/>
-  <rect x="124" y="210" width="240" height="20" rx="10" fill="#d7e3fb"/>
-  <rect x="124" y="252" width="212" height="20" rx="10" fill="#d7e3fb"/>
-  <circle cx="364" cy="316" r="56" fill="#1a3a6b"/>
-  <path d="M338 316l18 18 34-38" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
-  <text x="256" y="442" text-anchor="middle" font-size="54" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">QCM</text>
+
+  <rect width="1024" height="1024" rx="230" fill="url(#appBg)"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="512" cy="512" r="356" fill="#f3f5f8"/>
+    <circle cx="512" cy="512" r="356" fill="none" stroke="url(#badgeRing)" stroke-width="34"/>
+    <circle cx="512" cy="512" r="295" fill="#f8fafc" stroke="#17253c" stroke-width="18"/>
+
+    <path d="M293 247h146v530H293z" fill="#1f4f93"/>
+    <path d="M439 247h146v530H439z" fill="#f5f7fb"/>
+    <path d="M585 247h146v530H585z" fill="#d92f32"/>
+
+    <path d="M366 608c28-104 131-199 251-190 37 3 71 17 90 42 27 35 18 90-14 122-44 43-113 51-168 42-26 32-67 63-118 63-46 0-81-21-85-53-4-31 16-53 44-65z" fill="url(#fur)" stroke="#2d1b12" stroke-width="12" stroke-linejoin="round"/>
+    <path d="M468 423c34-42 97-66 149-52 29 8 49 28 51 54 2 28-13 53-37 67-56 31-133 24-194 7 3-28 12-54 31-76z" fill="#875732" opacity="0.9"/>
+    <path d="M594 433c25-27 68-28 92-5 13 13 17 29 14 45-6 26-30 48-59 55-26 7-51 0-68-13 2-31 10-58 21-82z" fill="url(#fur)" stroke="#2d1b12" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M585 470c20-19 46-27 63-17 13 8 13 24 4 38-13 20-42 31-67 28-17-2-30-11-34-22 10-10 20-19 34-27z" fill="#2d1b12" opacity="0.85"/>
+    <circle cx="646" cy="460" r="10" fill="#ffffff"/>
+    <circle cx="649" cy="460" r="5" fill="#141923"/>
+
+    <path d="M659 597c28 3 55 15 73 37 14 18 18 41 7 57-13 18-42 18-64 4-20-13-33-34-42-54-6-13 10-46 26-44z" fill="url(#fur)" stroke="#2d1b12" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M508 636c-26 39-73 72-116 73-27 0-49-13-55-35-7-26 9-51 35-67 29-18 69-26 108-22 18 2 37 20 28 51z" fill="url(#fur)" stroke="#2d1b12" stroke-width="10" stroke-linejoin="round"/>
+    <ellipse cx="504" cy="770" rx="118" ry="56" fill="#10284e" opacity="0.16"/>
+
+    <text x="512" y="815" text-anchor="middle" font-size="82" font-family="Arial, sans-serif" font-weight="800" fill="#ffffff" opacity="0.92">112</text>
+  </g>
 </svg>
