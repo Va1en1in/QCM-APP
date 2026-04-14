@@ -22,10 +22,6 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 .header p { font-size: 13px; opacity: 0.75; margin-top: 4px; }
 .progress-bar-wrap { background: #e8ecf5; height: 5px; }
 .progress-bar-fill { background: #1a3a6b; height: 5px; transition: width 0.3s; }
-.install-tip { display: none; margin: 16px 28px 0; padding: 12px 14px; border-radius: 10px; background: #eef4ff; border: 1px solid #cfdcf7; color: #23406f; font-size: 13px; line-height: 1.5; }
-.install-tip.visible { display: block; }
-.install-tip strong { display: block; margin-bottom: 4px; font-size: 13px; }
-.install-tip button { margin-top: 8px; border: none; background: transparent; color: #1a3a6b; font-weight: 700; cursor: pointer; }
 .menu-screen { padding: 28px; }
 .menu-screen h2 { font-size: 17px; color: #1a3a6b; margin-bottom: 6px; }
 .menu-subtitle { font-size: 13px; color: #777; margin-bottom: 20px; }
@@ -83,14 +79,18 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 .score-circle .score-denom { font-size: 14px; opacity: 0.8; }
 #final-score h3 { font-size: 18px; color: #1a3a6b; margin-bottom: 8px; }
 #final-score p { font-size: 14px; color: #666; margin-bottom: 20px; }
+.install-tip { display: none; margin: 16px 28px 0; padding: 12px 14px; border-radius: 10px; background: #eef4ff; border: 1px solid #cfdcf7; color: #23406f; font-size: 13px; line-height: 1.5; }
+.install-tip.visible { display: block; }
+.install-tip strong { display: block; margin-bottom: 4px; font-size: 13px; }
+.install-tip button { margin-top: 8px; border: none; background: transparent; color: #1a3a6b; font-weight: 700; cursor: pointer; }
 
 @media (max-width: 700px) {
+  .install-tip { margin: 14px 18px 0; }
   body { padding: calc(env(safe-area-inset-top, 0px) + 12px) calc(env(safe-area-inset-right, 0px) + 12px) calc(env(safe-area-inset-bottom, 0px) + 12px) calc(env(safe-area-inset-left, 0px) + 12px); }
   .container { border-radius: 16px; }
   .header { padding: 20px 18px; }
   .header h1 { font-size: 18px; }
   .header p { font-size: 12px; }
-  .install-tip { margin: 14px 18px 0; }
   .menu-screen,
   #quiz,
   #final-score { padding: 18px; }
@@ -331,13 +331,13 @@ const themes = {
       { q: "Il est possible de procéder à un contrôle d’identité :", choices: ["De toute personne, sur autorisation du Juge des Libertés et de la Détention", "D’une personne à l’égard de laquelle il existe une ou plusieurs raisons de soupçonner qu’elle se prépare à commettre un crime ou un délit", "D’une personne à l’égard de laquelle il existe une ou plusieurs raisons de soupçonner qu’elle se prépare à commettre une contravention", "De toute personne"], answer: [1], exp: "La réponse correcte est : D’une personne à l’égard de laquelle il existe une ou plusieurs raisons de soupçonner qu’elle se prépare à commettre un crime ou un délit" },
       { q: "Un policier municipal peut-il procéder à un contrôle d’identité ?", choices: ["Non", "Oui", "Seulement sur réquisition écrite du procureur de la République en vertu des dispositions de l’article 78-2 alinéa 7 du CPP"], answer: [0], exp: "La réponse correcte est : Non" },
       { q: "Sur une scène d’infraction, le fonctionnaire de la police technique et scientifique doit rechercher et matérialiser les TTI. Que signifie l’acronyme TTI ?", choices: ["Traces Toutes Identifiables", "Techniques Traces Identifiables", "Taches Traces Indices", "Techniques Traces Indices"], answer: [2], exp: "La réponse correcte est : Taches Traces Indices" },
-      { q: "Quelle est la durée maximale d’une enquête de flagrance ?", choices: ["16 jours", "8 jours", "4 jours", "20 jours"], answer: [1], exp: "La réponse correcte est : 8 jours" },
+      { q: "Quelle est la durée maximale d’une enquête de flagrance ?", choices: ["16 jours", "8 jours", "4 jours", "20 jours"], answer: [0], exp: "La réponse correcte est : 16 jours" },
       { q: "Un OPJ ou un APJ doit-il recevoir une plainte s’il est territorialement incompétent ?", choices: ["Oui, seulement pour les crimes et délits punis d’au moins sept ans d’emprisonnement", "Oui", "Non, il doit orienter la victime vers le service territorialement compétent"], answer: [1], exp: "La réponse correcte est : Oui" },
       { q: "Dans quel cas les constatations sont-elles obligatoires ?", choices: ["Uniquement pour les crimes", "Pour toutes les infractions", "Pour les crimes et délits punis d’une peine d’emprisonnement"], answer: [2], exp: "La réponse correcte est : Pour les crimes et délits punis d’une peine d’emprisonnement" },
       { q: "Parmi les propositions suivantes, laquelle ne correspond pas à une situation de flagrance ?", choices: ["Un crime ou un délit qui se commet actuellement", "Une contravention qui se commet actuellement", "Un crime qui vient de se commettre", "Un délit qui vient de se commettre"], answer: [1], exp: "La réponse correcte est : Une contravention qui se commet actuellement" },
-      { q: "Selon l’article 19 du CPP, l’OPJ est tenu d’informer sans délai le procureur de la République :", choices: ["Des crimes, délits et contraventions dont il a connaissance", "Des crimes et délits dont il a connaissance", "Des crimes dont il a connaissance"], answer: [1], exp: "La réponse correcte est : Des crimes et délits dont il a connaissance" },
+      { q: "Selon l’article 19 du CPP, l’OPJ est tenu d’informer sans délai le procureur de la République :", choices: ["Des crimes, délits et contraventions dont il a connaissance", "Des crimes et délits dont il a connaissance", "Des crimes dont il a connaissance"], answer: [0], exp: "La réponse correcte est : Des crimes, délits et contraventions dont il a connaissance" },
       { q: "Les procès-verbaux établis dans le cadre d’une enquête sur un crime ou un délit :", choices: ["Font foi jusqu’à inscription de faux", "Ne valent qu’à titre de simples renseignements", "Font foi jusqu’à preuve du contraire"], answer: [1], exp: "La réponse correcte est : Ne valent qu’à titre de simples renseignements" },
-      { q: "Parmi les personnes suivantes, lesquelles ne sont pas OPJ :", choices: ["Les gardiens de la paix stagiaires", "Les commissaires de police", "Les maires", "Les officiers de police"], answer: [0,2], exp: "Les réponses correctes sont : Les gardiens de la paix stagiaires, Les maires" },
+      { q: "Parmi les personnes suivantes, lesquelles ne sont pas OPJ :", choices: ["Les gardiens de la paix stagiaires", "Les commissaires de police", "Les maires", "Les officiers de police"], answer: [0,1], exp: "Les réponses correctes sont : Les gardiens de la paix stagiaires, Les commissaires de police" },
       { q: "Parmi les dispositions suivantes, laquelle n’est pas obligatoire lors de la rédaction d’un procès-verbal ?", choices: ["Signature du rédacteur", "Rédaction en langue française", "Signatures des assistants", "Unicité du rédacteur"], answer: [2], exp: "La réponse correcte est : Signatures des assistants" },
       { q: "La palpation de sécurité a pour but :", choices: ["De rechercher une infraction", "De s’assurer que la personne ne détient pas d’objet dangereux pour elle-même ou pour autrui", "De rechercher des éléments intéressant l’enquête"], answer: [1], exp: "La réponse correcte est : De s’assurer que la personne ne détient pas d’objet dangereux pour elle-même ou pour autrui" },
       { q: "Quel élément ne peut pas être placé sous scellé ?", choices: ["Une arme à feu", "Un animal vivant", "Un chéquier", "Une pièce d’identité"], answer: [1], exp: "La réponse correcte est : Un animal vivant" },
@@ -363,7 +363,7 @@ const themes = {
       { q: "Quelle affirmation concernant l’inscription des objets dans le FOVES est exacte ?", choices: ["Seuls les objets volés ou dégradés sont concernés", "Tous les objets décrits dans la procédure sont concernés", "Seuls les objets identifiables, numéro de série, sont concernés"], answer: [2], exp: "La réponse correcte est : Seuls les objets identifiables, numéro de série, sont concernés" },
       { q: "Je peux consulter le TAJ :", choices: ["Dans le cadre d’une vérification d’identité", "Dans le cadre d’un contrôle d’identité", "Dans le cadre d’une enquête judiciaire quel que soit le cadre juridique"], answer: [0,2], exp: "Les réponses correctes sont : Dans le cadre d’une vérification d’identité, Dans le cadre d’une enquête judiciaire quel que soit le cadre juridique" },
       { q: "Quelle affirmation concernant le mode dégradé de LRPPN est exacte ?", choices: ["Après reconnexion, la remontée de tous les actes est automatique", "Après reconnexion, seule la remontée des saisines est automatique", "Après reconnexion, la remontée de tous les actes est manuelle"], answer: [1], exp: "La réponse correcte est : Après reconnexion, seule la remontée des saisines est automatique" },
-      { q: "Les modèles de PV qui génèrent automatiquement les mentions obligatoires sont :", choices: ["CRI", "PVVP", "PV Blanc", "Le cheq"], answer: [1,3], exp: "Les réponses correctes sont : PVVP, Le cheq" },
+      { q: "Les modèles de PV qui génèrent automatiquement les mentions obligatoires sont :", choices: ["CRI", "PVVP", "PV Blanc", "Le cheq", "PV vol VA"], answer: [1,3,4], exp: "Les réponses correctes sont : PVVP, Le cheq, PV vol VA" },
       { q: "Dans un souci d’utilisation optimale du LRPPN, une plainte de vol d’accessoires de véhicule accompagnée de violences doit être prise :", choices: ["Sur un PVVP", "Sur un PV blanc", "Sur un CRI"], answer: [2], exp: "La réponse correcte est : Sur un CRI" },
       { q: "Dans un CRI, pour insérer l’identité de la victime, il est possible d’utiliser :", choices: ["Touche F10", "Touche F3", "Touche F4"], answer: [1], exp: "La réponse correcte est : Touche F3" },
       { q: "La falsification d’un passeport peut être caractérisée par :", choices: ["La modification des mentions variables", "Le retrait d’une page intérieure", "La reproduction du document"], answer: [0,1], exp: "Les réponses correctes sont : La modification des mentions variables, Le retrait d’une page intérieure" },
@@ -375,20 +375,20 @@ const themes = {
       { q: "Dans quelle catégorie sont classées les armes blanches ?", choices: ["A", "D", "C", "B"], answer: [1], exp: "La réponse correcte est : D" },
       { q: "À qui adresse-t-on les demandes d’autorisation d’acquisition et détention d’armes ?", choices: ["Maire", "Préfet", "Procureur de la République", "Au ministère de l’intérieur"], answer: [1], exp: "La réponse correcte est : Préfet" },
       { q: "Quel document de voyage le touriste d’un pays tiers doit-il présenter à l’entrée sur le territoire ?", choices: ["Aucun document particulier", "Un passeport", "Une carte d’identité"], answer: [1], exp: "La réponse correcte est : Un passeport" },
-      { q: "La fermeture administrative d’un débit de boissons prise par arrêté municipal est d’une durée maximale de :", choices: ["Un an", "6 mois", "2 mois"], answer: [2], exp: "La réponse correcte est : 2 mois" },
+      { q: "La fermeture administrative d’un débit de boissons prise par arrêté municipal est d’une durée maximale de :", choices: ["Un an", "6 mois", "2 mois"], answer: [1], exp: "La réponse correcte est : 6 mois" },
       { q: "Un individu, contrôlé en vertu d’une réquisition du procureur de la République, peut se voir demander de justifier de son droit de circuler ou de séjourner sur le territoire national :", choices: ["Sans condition particulière, la réquisition suffit", "S’il refuse de justifier de son identité", "S’il déclare spontanément être de nationalité étrangère"], answer: [2], exp: "La réponse correcte est : S’il déclare spontanément être de nationalité étrangère" },
       { q: "Est-ce qu’un débitant de boissons, détenteur d’une licence de 3e catégorie, peut vendre pour consommer sur place un verre de whisky ?", choices: ["Oui", "Non", "Peut-être"], answer: [1], exp: "La réponse correcte est : Non" },
       { q: "Un volontaire d’un autre État résidant en France depuis au moins 5 ans peut-il être engagé dans la réserve citoyenne de la police nationale ?", choices: ["Oui s’il satisfait à la condition d’intégration définie à l’article L413-7 du CESEDA", "Non, il faut avoir la nationalité française pour pouvoir être engagé", "Oui seulement s’il s’agit d’un pays de l’Union européenne", "Non, il faut avoir été policier adjoint pour y prétendre"], answer: [0], exp: "La réponse correcte est : Oui s’il satisfait à la condition d’intégration définie à l’article L413-7 du CESEDA" },
-      { q: "Par qui est autorisé le port de la tenue d’hiver ?", choices: ["Le préfet", "Le chef de brigade", "Le chef de service", "Romain BERTHET", "Le chef d’unité"], answer: [2], exp: "La réponse correcte est : Le chef de service" },
+      { q: "Par qui est autorisé le port de la tenue d’hiver ?", choices: ["Le préfet", "Le chef de brigade", "Le chef de service", "Le chef d’unité"], answer: [2], exp: "La réponse correcte est : Le chef de service" },
       { q: "Quel geste effectue en premier un policier après avoir pénétré dans le bureau d’une autorité hiérarchique ?", choices: ["Il se présente", "Il se décoiffe", "Il salue", "Il danse", "Il se met au garde-à-vous"], answer: [4], exp: "La réponse correcte est : Il se met au garde-à-vous" },
-      { q: "Combien existe-t-il de corps chez les personnels actifs de la police nationale ?", choices: ["2", "1", "Mon corp mon intimité", "3", "4"], answer: [3], exp: "La réponse correcte est : 3" },
+      { q: "Combien existe-t-il de corps chez les personnels actifs de la police nationale ?", choices: ["2", "1", "3", "4"], answer: [2], exp: "La réponse correcte est : 3" },
       { q: "La nomination à l’emploi de directeur des services actifs n’est possible qu’à compter du grade de :", choices: ["Commissaire général de police", "Commissaire de police", "Commissaire divisionnaire de police", "Cadet de la république"], answer: [2], exp: "La réponse correcte est : Commissaire divisionnaire de police" },
       { type: "vf", q: "En maintien ou rétablissement de l’ordre public et pour pouvoir lancer une GM2L, il faut être 02 policiers.", answer: true, exp: "La réponse correcte est : Vrai" },
       { q: "Quel est le retard d’un bouchon allumeur à cuillère d’une grenade à main de désencerclement ?", choices: ["04 secondes", "0 seconde", "1,5 seconde", "2,5 secondes"], answer: [2], exp: "La réponse correcte est : 1,5 seconde" },
       { q: "Quelle est la portée minimale d’utilisation du LBD 40 mm avec une munition unique de défense ?", choices: ["5 m", "3 m", "10 m", "7 m"], answer: [1], exp: "La réponse correcte est : 3 m" },
       { q: "Combien y a-t-il de sous-catégories pour le permis de conduire A ?", choices: ["3", "4", "2", "1"], answer: [0], exp: "La réponse correcte est : 3" },
       { q: "Quelles catégories de véhicules doivent apposer un certificat d’assurance en cours de validité ?", choices: ["Les véhicules à moteur dont le PTAC est inférieur ou égal à 3,5 t", "Les véhicules à moteur non immatriculés", "Les chevaux de trait"], answer: [1], exp: "La réponse correcte est : Les véhicules à moteur non immatriculés" },
-      { q: "Que doit présenter le conducteur d’un véhicule de moins de 3,5 t lors d’un contrôle routier ?", choices: ["Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré pendant 15 jours après la souscription du contrat d’assurance", "Permis de conduire, pièce d’identité, certificat d’immatriculation, attestation d’assurance", "Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré à chaque contrôle", "Permis de conduire, certificat d’immatriculation, certificat d’assurance, attestation d’assurance", "C'est quoi un véhicule"], answer: [0], exp: "La réponse correcte est : Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré pendant 15 jours après la souscription du contrat d’assurance" },
+      { q: "Que doit présenter le conducteur d’un véhicule de moins de 3,5 t lors d’un contrôle routier ?", choices: ["Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré pendant 15 jours après la souscription du contrat d’assurance", "Permis de conduire, pièce d’identité, certificat d’immatriculation, attestation d’assurance", "Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré à chaque contrôle", "Permis de conduire, certificat d’immatriculation, certificat d’assurance, attestation d’assurance"], answer: [0], exp: "La réponse correcte est : Permis de conduire, certificat d’immatriculation, fiche mémo véhicule assuré pendant 15 jours après la souscription du contrat d’assurance" },
       { q: "Quel fichier doit-on interroger pour avoir les informations concernant l’identité ainsi que l’adresse du propriétaire du véhicule ?", choices: ["FVA", "FOVES", "FPR", "SIV"], answer: [3], exp: "La réponse correcte est : SIV" },
       { q: "Combien de points obtient-on lors de l’obtention du permis de conduire ?", choices: ["10", "8", "12", "6"], answer: [3], exp: "La réponse correcte est : 6" },
       { type: "vf", q: "Le permis de conduire des 27 États membres de l’Union Européenne adopte les mêmes catégories et caractéristiques.", answer: true, exp: "La réponse correcte est : Vrai" },
@@ -402,23 +402,23 @@ const themes = {
       { type: "vf", q: "En cas de commission simultanée des délits de défaut d’assurance et de défaut de permis de conduire, cela permet la mise en œuvre de l’AFD.", answer: false, exp: "La réponse correcte est : Faux" },
       { type: "vf", q: "Le paiement immédiat d’une contravention n’est possible que par le biais d’un boîtier m-POS.", answer: false, exp: "La réponse correcte est : Faux" },
       { type: "vf", q: "Une infraction préalable est obligatoire pour pouvoir contrôler un véhicule.", answer: false, exp: "La réponse correcte est : Faux" },
-      { q: "Quelle autorité autorise une mise en fourrière administrative ?", choices: ["Le préfet", "Le procureur de la République", "Berthet Romain"], answer: [0], exp: "La réponse correcte est : Le préfet" },
+      { q: "Quelle autorité autorise une mise en fourrière administrative ?", choices: ["Le préfet", "Le procureur de la République"], answer: [0], exp: "La réponse correcte est : Le préfet" },
       { type: "vf", q: "La présence du conducteur du véhicule est obligatoire dans le cas d’une immobilisation.", answer: false, exp: "La réponse correcte est : Faux" },
       { q: "Quel délit ne peut pas être relevé au moyen de l’amende forfaitaire délictuelle ?", choices: ["La conduite d’un véhicule sans permis", "L’usage illicite de stupéfiants", "La conduite d’un véhicule sous l’empire d’un état alcoolique", "La circulation d’un véhicule terrestre à moteur sans assurance"], answer: [2], exp: "La réponse correcte est : La conduite d’un véhicule sous l’empire d’un état alcoolique" },
       { type: "vf", q: "Dans le cadre de l’immobilisation d’un véhicule, le remplacement du conducteur est possible pendant la durée de rétention du permis de conduire.", answer: true, exp: "La réponse correcte est : Vrai" },
-      { q: "En situation dégradée, je peux intervenir d’initiative :", choices: ["En binôme", "En trinôme"], answer: [1], exp: "La réponse correcte est : En trinôme" },
+      { q: "En situation dégradée, je peux intervenir d’initiative :", choices: ["En binôme", "En trinôme"], answer: [0], exp: "La réponse correcte est : En binôme" },
       { q: "En situation dégradée, le porteur bouclier est appelé :", choices: ["Agent d’appui", "Agent d’intervention", "Agent de protection", "Chef de groupe"], answer: [2], exp: "La réponse correcte est : Agent de protection" },
       { q: "De combien de congés annuels bénéficie un fonctionnaire de police en régime hebdomadaire ?", choices: ["20 jours", "18 jours", "25 jours", "23 jours"], answer: [2], exp: "La réponse correcte est : 25 jours" },
-      { q: "Un fonctionnaire de police, en tenue d’uniforme, tient des propos racistes et désobligeants sur des vidéos publiées sur Facebook. Peut-il être poursuivi pour un manquement déontologique ?", choices: ["J'appelle direct Mme BERTHET", "Oui", "Non"], answer: [1], exp: "La réponse correcte est : Oui" },
+      { q: "Un fonctionnaire de police, en tenue d’uniforme, tient des propos racistes et désobligeants sur des vidéos publiées sur Facebook. Peut-il être poursuivi pour un manquement déontologique ?", choices: ["Oui", "Non"], answer: [0], exp: "La réponse correcte est : Oui" },
       { q: "Est-ce que le signataire de la note de service est toujours celui qui l’a rédigée ?", choices: ["Oui", "Non"], answer: [1], exp: "La réponse correcte est : Non" },
       { q: "Un officier de police judiciaire doit-il inscrire sur le registre judiciaire de garde à vue toutes les personnes faisant l’objet d’une mesure de privation de liberté au sein du service ?", choices: ["Oui", "Non"], answer: [1], exp: "La réponse correcte est : Non" },
-      { q: "Dans le cadre de la sécurité du quotidien, que signifie l’acronyme GPO ?", choices: ["Groupement de partenariat et d’opérabilité", "Groupe de partenariat opérationnel", "Groupe de police opérationnel", "Gros pénis orphelin", "Groupe de problématique opérationnelle"], answer: [1], exp: "La réponse correcte est : Groupe de partenariat opérationnel" },
+      { q: "Dans le cadre de la sécurité du quotidien, que signifie l’acronyme GPO ?", choices: ["Groupement de partenariat et d’opérabilité", "Groupe de partenariat opérationnel", "Groupe de police opérationnel", "Groupe de problématique opérationnelle"], answer: [1], exp: "La réponse correcte est : Groupe de partenariat opérationnel" },
       { q: "Un fonctionnaire de police est l’auteur d’un accident corporel de la circulation alors qu’il est en état d’ébriété en dehors de ses heures de service et avec son véhicule personnel. Commet-il un manquement déontologique ?", choices: ["Oui", "Non"], answer: [0], exp: "La réponse correcte est : Oui" },
       { q: "Dans quel cas rédige-t-on un télégramme 11 points ?", choices: ["Pour des interpellations d’auteurs ou pour leur identification", "Pour des faits délictuels ou criminels sans interpellation", "Pour des faits particulièrement exceptionnels", "Pour rendre compte de l’activité judiciaire d’un service", "Pour rendre compte du déroulement d’un service d’ordre ou d’un maintien de l’ordre"], answer: [0], exp: "La réponse correcte est : Pour des interpellations d’auteurs ou pour leur identification" },
       { q: "Dans quel cas rédige-t-on un TG 10 points ?", choices: ["Suite à la mise en place d’un service d’ordre", "Pour toute demande de renfort", "Pour des faits délictuels ou criminels sans interpellation", "Pour des faits délictuels ou criminels d’auteurs ou pour leur identification"], answer: [2], exp: "La réponse correcte est : Pour des faits délictuels ou criminels sans interpellation" },
       { q: "Un télégramme concernant une interpellation de mis en cause doit-il être rédigé :", choices: ["Dans l’heure", "Sans délai", "Dans les 2 heures", "Dans les 4 heures"], answer: [1], exp: "La réponse correcte est : Sans délai" },
       { q: "Un commissariat subdivisionnaire peut-il être fermé la nuit ?", choices: ["Oui", "Non"], answer: [0], exp: "La réponse correcte est : Oui" },
-      { q: "En régime hebdomadaire petite et grande semaine, le repos légal se trouve le :", choices: ["Samedi", "Lundi", "Dimanche", "Jeudredi"], answer: [2], exp: "La réponse correcte est : Dimanche" },
+      { q: "En régime hebdomadaire petite et grande semaine, le repos légal se trouve le :", choices: ["Samedi", "Dimanche", "Lundi"], answer: [1], exp: "La réponse correcte est : Dimanche" },
       { q: "Quel dispositif de la sécurité du quotidien permet de renforcer le lien entre la population, les acteurs de terrain et les services de police ?", choices: ["Le correspondant sécurité scolaire", "Le délégué à la cohésion police population", "Le groupement local du traitement de la délinquance", "Le référent sûreté"], answer: [1], exp: "La réponse correcte est : Le délégué à la cohésion police population" },
       { q: "Lors d’un contrôle routier, vous constatez la présence de trois fonctionnaires de police dont les tenues ne sont pas uniformes. Avez-vous la possibilité de rappeler à l’ordre ces effectifs sur ce manquement déontologique ?", choices: ["Oui", "Non"], answer: [0], exp: "La réponse correcte est : Oui" },
       { q: "Que signifie l’acronyme SSQ ?", choices: ["Service de sécurité du quotidien", "Sécurité du service quotidien", "Soutien du service quotidien"], answer: [0], exp: "La réponse correcte est : Service de sécurité du quotidien" }
@@ -3856,9 +3856,7 @@ function escHtml(str) {
   return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-function isStandaloneApp() {
-  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-}
+buildSubjectMenu();
 
 function dismissInstallTip() {
   localStorage.setItem("qcmInstallTipDismissed", "1");
@@ -3866,22 +3864,26 @@ function dismissInstallTip() {
   if (tip) tip.classList.remove("visible");
 }
 
-function maybeShowInstallTip() {
+function showInstallTipIfNeeded() {
   const tip = document.getElementById("installTip");
   if (!tip) return;
-  if (isStandaloneApp()) return;
-  if (localStorage.getItem("qcmInstallTipDismissed") === "1") return;
-  tip.classList.add("visible");
+
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  const isAppleMobile = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+  const dismissed = localStorage.getItem("qcmInstallTipDismissed") === "1";
+
+  if (!isStandalone && isAppleMobile && !dismissed) {
+    tip.classList.add("visible");
+  }
 }
 
-if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./service-worker.js").catch(() => {});
   });
 }
 
-buildSubjectMenu();
-maybeShowInstallTip();
+showInstallTipIfNeeded();
 </script>
 </body>
 </html>
