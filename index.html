@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1a3a6b">
+<meta name="description" content="Application web de révision police, installable sur iPhone depuis Safari.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="QCM Police">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#12305d">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./icon.svg">
@@ -20,12 +20,10 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 .header { background: #1a3a6b; color: white; padding: 24px 28px; }
 .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
 .header p { font-size: 13px; opacity: 0.75; margin-top: 4px; }
+.install-note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 12px; line-height: 1.5; }
+.install-note strong { color: #fff; }
 .progress-bar-wrap { background: #e8ecf5; height: 5px; }
 .progress-bar-fill { background: #1a3a6b; height: 5px; transition: width 0.3s; }
-.install-tip { display: none; margin: 16px 28px 0; padding: 12px 14px; border-radius: 10px; background: #eef4ff; border: 1px solid #cfdcf7; color: #23406f; font-size: 13px; line-height: 1.5; }
-.install-tip.visible { display: block; }
-.install-tip strong { display: block; margin-bottom: 4px; font-size: 13px; }
-.install-tip button { margin-top: 8px; border: none; background: transparent; color: #1a3a6b; font-weight: 700; cursor: pointer; }
 .menu-screen { padding: 28px; }
 .menu-screen h2 { font-size: 17px; color: #1a3a6b; margin-bottom: 6px; }
 .menu-subtitle { font-size: 13px; color: #777; margin-bottom: 20px; }
@@ -85,7 +83,6 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
 #final-score p { font-size: 14px; color: #666; margin-bottom: 20px; }
 
 @media (max-width: 700px) {
-  .install-tip { margin: 14px 18px 0; }
   body { padding: calc(env(safe-area-inset-top, 0px) + 12px) calc(env(safe-area-inset-right, 0px) + 12px) calc(env(safe-area-inset-bottom, 0px) + 12px) calc(env(safe-area-inset-left, 0px) + 12px); }
   .container { border-radius: 16px; }
   .header { padding: 20px 18px; }
@@ -108,13 +105,9 @@ body { font-family: Arial, sans-serif; background: #f0f2f5; padding: calc(env(sa
   <div class="header">
     <h1>QCM — Révision Police</h1>
     <p>Entraînement aux cadres juridiques et procédures</p>
+    <p class="install-note"><strong>iPhone :</strong> ouvrez ce site dans Safari, touchez <strong>Partager</strong>, puis <strong>Sur l'écran d'accueil</strong>.</p>
   </div>
   <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar" style="width:0%"></div></div>
-  <div id="installTip" class="install-tip">
-    <strong>Astuce iPhone</strong>
-    Ouvrez ce QCM dans Safari puis touchez Partager &gt; Ajouter à l’écran d’accueil pour l’utiliser comme une mini app.
-    <button type="button" onclick="dismissInstallTip()">Masquer</button>
-  </div>
 
   <div id="subjectMenu" class="menu-screen">
     <h2>Choisir une matière</h2>
@@ -3858,32 +3851,13 @@ function escHtml(str) {
 
 buildSubjectMenu();
 
-function dismissInstallTip() {
-  localStorage.setItem("qcmInstallTipDismissed", "1");
-  const tip = document.getElementById("installTip");
-  if (tip) tip.classList.remove("visible");
-}
-
-function showInstallTipIfNeeded() {
-  const tip = document.getElementById("installTip");
-  if (!tip) return;
-
-  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-  const isAppleMobile = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
-  const dismissed = localStorage.getItem("qcmInstallTipDismissed") === "1";
-
-  if (!isStandalone && isAppleMobile && !dismissed) {
-    tip.classList.add("visible");
-  }
-}
-
-if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+      console.error("Service worker non enregistre", error);
+    });
   });
 }
-
-showInstallTipIfNeeded();
 </script>
 </body>
 </html>
